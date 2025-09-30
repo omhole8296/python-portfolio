@@ -36,4 +36,5 @@ class Ball(t.Turtle):
         self.dx *= -1
 
     def bounce_y(self):
+
         self.dy *= -1
