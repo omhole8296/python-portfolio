@@ -1,0 +1,37 @@
+import random
+import turtle as t
+
+
+screen=t.Screen()
+t.colormode(255)
+screen.setup(width=500,height=400)
+flag=True
+
+bet=screen.textinput(title="make your bet",prompt="turtle to win")
+colors=["red","green","blue","yellow","orange","violet"]
+index=[-125,-75,-25,25,75,125]
+
+tuttles=[]
+for i in range(0,6):
+    vasu=t.Turtle("turtle")
+    vasu.color(colors[i])
+    vasu.penup()
+    vasu.goto(-230,index[i])
+    tuttles.append(vasu)
+
+if bet:
+    flag=True
+    
+while flag:
+    for i in tuttles:
+        dis=random.randint(0,10)
+        i.forward(dis)
+        
+        if i.xcor()>=230:
+            flag=False
+            winn=i.pencolor()
+            if winn==bet.lower():
+                print(f"You’ve won! The {winn} turtle is the winner 🏆")
+            else:
+                 print(f"You’ve lost! The {winn} turtle won the race 😢")
+screen.exitonclick()
