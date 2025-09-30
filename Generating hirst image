@@ -1,0 +1,34 @@
+import turtle as t
+import random
+
+inp=input("If want to go from left to right and vise versa 'y' Else 'n' : ")
+
+clist=[(245, 238, 226), (233, 239, 246), (247, 236, 242), (234, 245, 239), (185, 161, 137), (147, 163, 177), (78, 97, 114), (177, 151, 160), (125, 93, 78), (23, 33, 45), (210, 205, 149), (148, 175, 159), (117, 84, 96), (51, 23, 32), (78, 111, 89), (44, 25, 19), (20, 35, 27), (213, 178, 189), (158, 109, 122), (218, 180, 174), (103, 40, 52), (162, 112, 104), (153, 146, 84), (171, 205, 187), (102, 145, 116), (181, 188, 209), (106, 38, 33), (49, 60, 87), (167, 201, 208), (37, 80, 62), (39, 74, 83), (116, 125, 146), (94, 143, 153), (69, 74, 46)]
+vasu=t.Turtle()
+t.colormode(255)
+
+vasu.penup()
+vasu.hideturtle()
+screen=t.Screen()
+
+l=int(-225)  
+for j in range(0,10):
+    if inp=="y":
+        if vasu.xcor()==0:
+            vasu.goto(-225, l)
+        elif vasu.xcor()==225:
+            vasu.goto(225,l)
+            vasu.left(180)
+        else:
+            vasu.goto(-225, l)
+            vasu.left(180)
+    else:
+        vasu.goto(-225,l)
+    l+=50
+    for i in range(0,10): 
+        rcolor=random.choice(clist)
+        vasu.dot(20,rcolor)
+        if i<9:
+            vasu.forward(50)
+
+screen.exitonclick()
