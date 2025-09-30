@@ -1,0 +1,23 @@
+import turtle as t
+import random  
+inpu=int(input("enter the no : "))
+vasu=t.Turtle()
+screen=t.Screen()
+vasu.hideturtle()
+angle=[0,90,180,270]
+vasu.speed("fastest")
+
+t.colormode(255)
+
+def colorss():
+    r=random.randint(0,255)
+    g=random.randint(0,255)
+    b=random.randint(0,255)
+    rcolor=(r,g,b)
+    return rcolor
+
+for i in range(0,inpu):
+    vasu.color(colorss())
+    vasu.circle(100)
+    vasu.left(360/inpu)
+screen.exitonclick()
