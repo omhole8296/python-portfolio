@@ -1,0 +1,78 @@
+import random
+hi="jack"
+
+def calculate(hand,count):
+    count = 0
+    aces = 0
+    for card in hand:
+        if card == "Ace":
+            aces += 1
+            count += 11 
+        else:
+            count += cards[card]
+
+    while count > 21 and aces>0:
+        count -= 10
+        aces -= 1
+
+    return count
+
+
+def user(cards,you):
+    yadd=random.choice(list(cards.keys()))
+    you.append(yadd)
+    print(you)
+    return you
+    
+ 
+print ("logo")
+cards={"Ace":11,"2":2,"3":3,"4":4,"5":5,"6":6,"7":7,"8":8,"9":9,"10":10,"Jack":10,"Queen":10,"King":10}
+flag=True
+while flag:
+    ccount=0
+    ycount=0
+    computer=random.sample(list(cards.keys()),2)
+    you=random.sample(list(cards.keys()),2)
+    print("your cards are : ",you)
+    print("computer's cards are : " ,computer[0])
+    
+    next=input("want next card or pass : ")
+    while next=="y":
+        user(cards,you)
+        next=input("want next card or pass : ")
+    
+    ccount=calculate(computer,ccount)
+    ycount=calculate(you,ycount)
+    
+    while ccount<17:
+        cadd=random.choice(list(cards.keys()))
+        computer.append(cadd)
+        ccount=calculate(computer,ccount)
+            
+            
+            
+    if ycount > 21:
+        print("You went over 21. You lose!")
+    elif ccount > 21:
+        print("Computer went over 21. You win!")
+    elif ycount > ccount:
+        print("You win!")
+    elif ccount > ycount:
+        print("Computer wins!")
+    else:
+        print("It's a draw!")
+        
+        
+    print(f"your cards are : {you} and your score is : {ycount}")
+    print(f"computer's cards are : {computer} and computer score is : {ccount}")
+    
+    
+    
+    next_game=input("want to play next game : ").lower()
+    if next_game== "y":
+        print("let's play new game")
+    else:
+        print("Thanks for playing")
+        flag=False
+         
+         
