@@ -1,0 +1,40 @@
+alphabate=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"," "]
+ 
+
+def caeser(word,digit,code):
+    if code=="decode":
+        digit*=-1
+    new = ""
+    for char in word:
+        if char in alphabate:
+            index = (alphabate.index(char) + digit) % len(alphabate)
+            new += alphabate[index]
+        else:
+            new += char
+    print(code,":", new)
+
+
+flag=0
+while flag==0: 
+    code=input("Enter encode or decode : ").lower()
+    sentence=input("Enter the sentence : ")
+    shift=int(input("Enter the shift : "))
+
+    caeser(sentence,shift,code)
+        
+    restart = input("would you like to continue say y or n : ").lower()
+    flag2=0
+    while flag2==0:
+        
+        if restart=="n":
+            flag=1
+            print("Thank you")
+            flag2=1
+            
+        elif restart=="y":
+            flag=0
+            flag2=1
+            
+        else:
+            print("You enter wrong input")
+            restart = input("would you like to continue say y or n : ").lower()
