@@ -1,7 +1,5 @@
-import os
 import math
 from tkinter import *
-os.chdir(r"C:\Users\omhol\OneDrive\Documents\om\om programs\pythonprograms")
 
 PINK = "#e2979c"
 RED = "#e7305b"
