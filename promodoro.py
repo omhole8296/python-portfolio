@@ -33,24 +33,25 @@ def countdown(count):
 def start():
     global reps
     global ticks
-    reps+=1
-    if reps%9==0:
-        reps=0
-        return
-    elif reps%8==0:
-        count=1200
-        ticks+="✔"
-        tick.config(text=f"{ticks}")
-        timer.config(text="Break",fg=RED)
-    elif reps%2==0:
-        count=300
-        ticks+="✔"
-        tick.config(text=f"{ticks}")
-        timer.config(text="Break",fg=PINK)
-    else:
-        count=1500
-        timer.config(text="Work",fg=GREEN)
-    countdown(count)
+    if canvas.itemcget(timer_text, "text") == "00:00":
+        reps+=1
+        if reps%9==0:
+            reps=0
+            return
+        elif reps%8==0:
+            count=1200
+            ticks+="✔"
+            tick.config(text=f"{ticks}")
+            timer.config(text="Break",fg=RED)
+        elif reps%2==0:
+            count=300
+            ticks+="✔"
+            tick.config(text=f"{ticks}")
+            timer.config(text="Break",fg=PINK)
+        else:
+            count=1500
+            timer.config(text="Work",fg=GREEN)
+        countdown(count)
     
 def reset():
     global reps, count,ticks
