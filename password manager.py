@@ -1,5 +1,3 @@
-import os
-os.chdir(r"C:\Users\omhol\OneDrive\Documents\om\om programs\pythonprograms")
 from tkinter import *
 from tkinter import messagebox
 from random import *
