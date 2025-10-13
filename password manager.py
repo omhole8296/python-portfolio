@@ -64,7 +64,7 @@ window.config(padx=20,pady=20)
 window.title("Password Manager")
 
 canvas=Canvas(width=200,height=200,highlightthickness=0)
-password_manager=PhotoImage(file="password_manager.png")
+password_manager=PhotoImage(file="password_manager_image.png")
 canvas.create_image(100,100,image=password_manager)
 canvas.grid(row=0,column=1)
 
