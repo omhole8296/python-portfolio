@@ -1,7 +1,4 @@
-import os
 from tkinter import *
-os.chdir(r"C:\Users\omhol\OneDrive\Documents\om\om programs\pythonprograms\kanye-quotes-start")
-
 import requests
 
 
