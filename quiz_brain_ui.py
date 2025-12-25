@@ -1,5 +1,3 @@
-import os
-os.chdir(r"C:\Users\omhol\OneDrive\Documents\om\om programs\pythonprograms\quizzler-app-start")
 from tkinter import *
 THEME_COLOR = "#375362"
 
