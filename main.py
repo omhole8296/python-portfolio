@@ -73,3 +73,4 @@ window.mainloop()
 with open("Flashcard.json","w") as f:
     json.dump(a, f)
     
+
