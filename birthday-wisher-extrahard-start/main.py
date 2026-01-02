@@ -1,5 +1,3 @@
-import os
-os.chdir(r"C:\Users\omhol\OneDrive\Documents\om\om programs\pythonprograms\birthday-wisher-extrahard-start")
 import pandas as p
 import smtplib as mail
 import random
