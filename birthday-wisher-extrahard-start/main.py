@@ -15,6 +15,6 @@ for record in data:
             message=greeting.replace("[NAME]",record['name'])
         with mail.SMTP("smtp.gmail.com") as m:
             m.starttls()
-            m.login(user="omhole8296@gmail.com",password="ucrh tpey cwby nivj")
-            m.sendmail(from_addr="omhole8296@gmail.com",to_addrs=record['email'],msg=f"Subject:Happy Birthday \n\n {message}")
+            m.login(user="xyz6@gmail.com",password="abcdefgh")
+            m.sendmail(from_addr="xyz@gmail.com",to_addrs=record['email'],msg=f"Subject:Happy Birthday \n\n {message}")
             print("message is send")
