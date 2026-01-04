@@ -42,10 +42,10 @@ print(previousclose)
 diff=float(latestclose)-float(previousclose)
 per=round((diff*100)/float(previousclose))
 print(per)
-if per>1 :
+if per>5 :
     print("stock increase")
     send_news_alert(f"TSLA: 🔺{per}%")
-elif per<-1:
+elif per<-5:
     print("stock decrease")
     send_news_alert(f"TSLA: 🔻{per}%")
 else:
