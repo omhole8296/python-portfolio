@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 chrome_options=webdriver.ChromeOptions()
+chrome_options.add_experimental_option("detach",True)
 driver=webdriver.Chrome(options=chrome_options)
 driver.get("https://ozh.github.io/cookieclicker/")
 
@@ -61,5 +62,6 @@ while True:
         # by chainging no. you can change the check time 
         
     cookie.click()
+
 
 
