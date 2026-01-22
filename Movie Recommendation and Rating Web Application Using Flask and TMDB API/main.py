@@ -8,6 +8,7 @@ from wtforms import StringField, SubmitField ,IntegerField
 from wtforms.validators import DataRequired
 import requests
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 Bootstrap5(app)
@@ -49,8 +50,11 @@ class Add(FlaskForm):
 
 @app.route("/")
 def home():
-    result = db.session.execute(db.select(Movie).order_by(Movie.ranking))
-    all_movies = result.scalars().all()
+    result = db.session.execute(db.select(Movie).order_by(Movie.rating))
+    all_movies = result.scalars().all() 
+    for i in range(len(all_movies)):
+        all_movies[i].ranking = len(all_movies) - i
+    db.session.commit()
     return render_template("index.html", movies=all_movies)
 
 
@@ -58,12 +62,10 @@ def home():
 def add():
     add_form = Add()
     if add_form.validate_on_submit():
-        # movie_title = request.args.get('title')  it is por get an below is for post
         movie_title = add_form.title.data  
         response = requests.get("https://api.themoviedb.org/3/search/movie", params={"api_key":API_KEY, "query": movie_title})
         data = response.json()["results"]
         return render_template("select.html", options=data)
-        # return redirect(url_for('home'))
     return render_template("add.html",form=add_form)
 
 
@@ -73,7 +75,6 @@ def edit():
     update_form = Update()
     movie_id = request.args.get('id')
     if update_form.validate_on_submit():
-    # if request.method == "POST":
         movie_to_update = db.get_or_404(Movie, movie_id)
         movie_to_update.rating = request.form["rating"]
         movie_to_update.ranking = request.form["ranking"]
